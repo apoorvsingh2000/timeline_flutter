@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:equinox_21/constants.dart';
 import 'package:equinox_21/widgets/indicators.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 bool isClicked1 = false;
 bool isClicked2 = false;
@@ -24,17 +26,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          stops: [0.1, 0.5, 0.7, 0.9],
-          colors: [
-            Color(0xffE0FCFD),
-            Color(0xffD5F7FC),
-            Color(0xffBBEBF8),
-            Color(0xffB1E6F7),
-          ],
-        ),
+        gradient: isDarkMode ? darkBackgroundGradient : lightBackgroundGradient,
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -58,9 +50,10 @@ class _TimelineScreenState extends State<TimelineScreen> {
                   children: [
                     Text(
                       '\t\tTimeline',
-                      style: TextStyle(
-                          color: textColorNight,
-                          fontSize: screenWidth(context) * 0.1),
+                      style: GoogleFonts.raleway(
+                        color: isDarkMode ? textColorNight : textColorDay,
+                        fontSize: screenWidth(context) * 0.1,
+                      ),
                     ),
                     SizedBox(height: screenHeight(context) * 0.01),
                     Expanded(
@@ -84,11 +77,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                     children: [
                                       Text(
                                         'Registration!',
-                                        style: TextStyle(
-                                          color: isDarkMode
-                                              ? textColorNight
-                                              : textColorDay,
-                                        ), //fontWeight:
+                                        style: textStyle(
+                                            context, isDarkMode, isClicked1),
                                       ),
                                       IconButton(
                                         onPressed: () {
@@ -106,7 +96,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   isClicked1 == true
                                       ? Text(
                                           'hemlo',
-                                          style: TextStyle(color: textColorNight),
+                                          style:
+                                              textStyle(context, isDarkMode, false),
                                         )
                                       : Container(),
                                 ],
@@ -116,9 +107,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               child: Text(
                                 '8:00 pm',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: textColorNight,
-                                    fontWeight: FontWeight.bold),
+                                style: textStyle(context, isDarkMode, false),
                               ),
                             ),
                           ), //1
@@ -126,7 +115,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Color(0xffBFD046),
+                              color: Color(0xffA7C549),
                               thickness: 4,
                             ),
                             indicatorStyle: earthIndicator(context),
@@ -138,8 +127,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Hack Starts',
-                                        style: TextStyle(color: textColorNight),
+                                        'Registration!',
+                                        style: textStyle(
+                                            context, isDarkMode, isClicked2),
                                       ),
                                       IconButton(
                                         onPressed: () {
@@ -157,7 +147,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   isClicked2 == true
                                       ? Text(
                                           'hemlo',
-                                          style: TextStyle(color: textColorNight),
+                                          style:
+                                              textStyle(context, isDarkMode, false),
                                         )
                                       : Container(),
                                 ],
@@ -167,9 +158,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               child: Text(
                                 '8:00 pm',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: textColorNight,
-                                    fontWeight: FontWeight.bold),
+                                style: textStyle(context, isDarkMode, false),
                               ),
                             ),
                           ), //2
@@ -177,11 +166,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
-                              thickness: 4,
-                            ),
-                            afterLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
+                              color: Colors.green,
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -193,8 +178,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Snack Time',
-                                        style: TextStyle(color: textColorNight),
+                                        'Registration!',
+                                        style: textStyle(
+                                            context, isDarkMode, isClicked3),
                                       ),
                                       IconButton(
                                         onPressed: () {
@@ -212,7 +198,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   isClicked3 == true
                                       ? Text(
                                           'hemlo',
-                                          style: TextStyle(color: textColorNight),
+                                          style:
+                                              textStyle(context, isDarkMode, false),
                                         )
                                       : Container(),
                                 ],
@@ -222,9 +209,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               child: Text(
                                 '8:00 pm',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: textColorNight,
-                                    fontWeight: FontWeight.bold),
+                                style: textStyle(context, isDarkMode, false),
                               ),
                             ),
                           ), //3
@@ -232,11 +217,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
-                              thickness: 4,
-                            ),
-                            afterLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
+                              color: Colors.green,
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -248,8 +229,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Snack Time',
-                                        style: TextStyle(color: textColorNight),
+                                        'Registration!',
+                                        style: textStyle(
+                                            context, isDarkMode, isClicked4),
                                       ),
                                       IconButton(
                                         onPressed: () {
@@ -267,31 +249,24 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   isClicked4 == true
                                       ? Text(
                                           'hemlo',
-                                          style: TextStyle(color: textColorNight),
+                                          style:
+                                              textStyle(context, isDarkMode, false),
                                         )
                                       : Container(),
                                 ],
                               ),
                             ),
                             startChild: Container(
-                              child: Text(
-                                '8:00 pm',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: textColorNight,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                              child: Text('8:00 pm',
+                                  textAlign: TextAlign.center,
+                                  style: textStyle(context, isDarkMode, false)),
                             ),
                           ), //4
                           TimelineTile(
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
-                              thickness: 4,
-                            ),
-                            afterLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
+                              color: Colors.green,
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -303,8 +278,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Snack Time',
-                                        style: TextStyle(color: textColorNight),
+                                        'Registration!',
+                                        style: textStyle(
+                                            context, isDarkMode, isClicked5),
                                       ),
                                       IconButton(
                                         onPressed: () {
@@ -322,7 +298,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   isClicked5 == true
                                       ? Text(
                                           'hemlo',
-                                          style: TextStyle(color: textColorNight),
+                                          style:
+                                              textStyle(context, isDarkMode, false),
                                         )
                                       : Container(),
                                 ],
@@ -332,9 +309,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               child: Text(
                                 '8:00 pm',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: textColorNight,
-                                    fontWeight: FontWeight.bold),
+                                style: textStyle(context, isDarkMode, false),
                               ),
                             ),
                           ), //5
@@ -342,11 +317,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
-                              thickness: 4,
-                            ),
-                            afterLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
+                              color: Colors.green,
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -358,8 +329,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Snack Time',
-                                        style: TextStyle(color: textColorNight),
+                                        'Registration!',
+                                        style: textStyle(
+                                            context, isDarkMode, isClicked6),
                                       ),
                                       IconButton(
                                         onPressed: () {
@@ -377,7 +349,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   isClicked6 == true
                                       ? Text(
                                           'hemlo',
-                                          style: TextStyle(color: textColorNight),
+                                          style:
+                                              textStyle(context, isDarkMode, false),
                                         )
                                       : Container(),
                                 ],
@@ -388,8 +361,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                 '8:00 pm',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                    color: textColorNight,
-                                    fontWeight: FontWeight.bold),
+                                  color: isDarkMode ? textColorNight : textColorDay,
+                                ),
                               ),
                             ),
                           ), //6
@@ -397,11 +370,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
-                              thickness: 4,
-                            ),
-                            afterLineStyle: LineStyle(
-                              color: Color(0xff3F964F),
+                              color: Colors.green,
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -412,10 +381,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                 children: [
                                   Row(
                                     children: [
-                                      Text(
-                                        'Snack Time',
-                                        style: TextStyle(color: textColorNight),
-                                      ),
+                                      Text('Registration!',
+                                          style: textStyle(
+                                              context, isDarkMode, isClicked7)),
                                       IconButton(
                                         onPressed: () {
                                           setState(() {
@@ -432,7 +400,8 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                   isClicked7 == true
                                       ? Text(
                                           'hemlo',
-                                          style: TextStyle(color: textColorNight),
+                                          style:
+                                              textStyle(context, isDarkMode, false),
                                         )
                                       : Container(),
                                 ],
@@ -442,9 +411,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               child: Text(
                                 '8:00 pm',
                                 textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    color: textColorNight,
-                                    fontWeight: FontWeight.bold),
+                                style: textStyle(context, isDarkMode, false),
                               ),
                             ),
                           ), //7
@@ -456,7 +423,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 Positioned(
                   top: screenHeight(context) * 0.55,
                   right: 0.0,
-                  child: moonImage,
+                  child: isDarkMode ? moonImage : sunImage,
                 ),
               ],
             ),
