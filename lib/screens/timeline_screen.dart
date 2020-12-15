@@ -13,15 +13,21 @@ bool isClicked4 = false;
 bool isClicked5 = false;
 bool isClicked6 = false;
 bool isClicked7 = false;
-bool isDarkMode = false;
 
 class TimelineScreen extends StatefulWidget {
+  final darkMode;
+
+  TimelineScreen(this.darkMode);
+
   @override
-  _TimelineScreenState createState() => _TimelineScreenState();
+  _TimelineScreenState createState() => _TimelineScreenState(darkMode);
 }
 
 class _TimelineScreenState extends State<TimelineScreen> {
   // isDarkMode == true ? darkBackground : lightBackground
+  bool isDarkMode;
+  _TimelineScreenState(this.isDarkMode);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -64,7 +70,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             lineXY: 0.3,
                             isFirst: true,
                             beforeLineStyle: LineStyle(
-                              color: Colors.yellow,
+                              color: Colors.yellow[400],
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -87,7 +93,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                           });
                                         },
                                         icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined,
+                                          isClicked1
+                                              ? Icons.keyboard_arrow_up_rounded
+                                              : Icons.keyboard_arrow_down_rounded,
                                           color: dropDownColor,
                                         ),
                                       ),
@@ -115,7 +123,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Color(0xffA7C549),
+                              color: Colors.yellow[300],
                               thickness: 4,
                             ),
                             indicatorStyle: earthIndicator(context),
@@ -138,7 +146,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                           });
                                         },
                                         icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined,
+                                          isClicked2
+                                              ? Icons.keyboard_arrow_up_rounded
+                                              : Icons.keyboard_arrow_down_rounded,
                                           color: dropDownColor,
                                         ),
                                       ),
@@ -166,7 +176,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Colors.green,
+                              color: Colors.yellow[200],
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -189,7 +199,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                           });
                                         },
                                         icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined,
+                                          isClicked3
+                                              ? Icons.keyboard_arrow_up_rounded
+                                              : Icons.keyboard_arrow_down_rounded,
                                           color: dropDownColor,
                                         ),
                                       ),
@@ -217,7 +229,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Colors.green,
+                              color: Colors.yellow[100],
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -240,7 +252,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                           });
                                         },
                                         icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined,
+                                          isClicked4
+                                              ? Icons.keyboard_arrow_up_rounded
+                                              : Icons.keyboard_arrow_down_rounded,
                                           color: dropDownColor,
                                         ),
                                       ),
@@ -266,7 +280,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Colors.green,
+                              color: Colors.green[100],
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -289,7 +303,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                           });
                                         },
                                         icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined,
+                                          isClicked5
+                                              ? Icons.keyboard_arrow_up_rounded
+                                              : Icons.keyboard_arrow_down_rounded,
                                           color: dropDownColor,
                                         ),
                                       ),
@@ -317,7 +333,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Colors.green,
+                              color: Colors.green[200],
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -340,7 +356,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                           });
                                         },
                                         icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined,
+                                          isClicked6
+                                              ? Icons.keyboard_arrow_up_rounded
+                                              : Icons.keyboard_arrow_down_rounded,
                                           color: dropDownColor,
                                         ),
                                       ),
@@ -370,7 +388,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                             alignment: TimelineAlign.manual,
                             lineXY: 0.3,
                             beforeLineStyle: LineStyle(
-                              color: Colors.green,
+                              color: Colors.green[300],
                               thickness: 4,
                             ),
                             indicatorStyle: indicator(context),
@@ -391,7 +409,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
                                           });
                                         },
                                         icon: Icon(
-                                          Icons.keyboard_arrow_down_outlined,
+                                          isClicked7
+                                              ? Icons.keyboard_arrow_up_rounded
+                                              : Icons.keyboard_arrow_down_rounded,
                                           color: dropDownColor,
                                         ),
                                       ),
