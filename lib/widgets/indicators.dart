@@ -19,7 +19,7 @@ IndicatorStyle earthIndicator(BuildContext context) {
   );
 }
 
-IndicatorStyle indicator(BuildContext context) {
+IndicatorStyle normalIndicator(BuildContext context) {
   return IndicatorStyle(
     width: screenWidth(context) * 0.08,
     height: screenHeight(context) * 0.04,

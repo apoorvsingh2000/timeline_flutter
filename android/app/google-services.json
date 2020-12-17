@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "914457730361",
+    "firebase_url": "https://count-people-8fc38.firebaseio.com",
+    "project_id": "count-people-8fc38",
+    "storage_bucket": "count-people-8fc38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914457730361:android:4f92b41c4585b3dd3f1ce8",
+        "android_client_info": {
+          "package_name": "com.apoorvsingh2000.equinox_21"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914457730361-0imivb15lsqmb472l71ubln9j4uguav1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMVahIrM37DF78DCx_bpdTLsCTx7MgnK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914457730361-0imivb15lsqmb472l71ubln9j4uguav1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

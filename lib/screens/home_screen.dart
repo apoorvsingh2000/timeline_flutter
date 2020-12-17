@@ -15,10 +15,25 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pages = <Widget>[
     Container(color: Colors.blue),
     Container(color: Colors.red),
-    TimelineScreen(isDarkMode),
+    TimelineScreen(),
     Container(color: Colors.green),
     Container(color: Colors.yellow),
   ];
+
+  @override
+  void initState() {
+    print('callllllllllllllllleddddddddddd');
+    manageTheme();
+  }
+
+  void manageTheme() {
+    DateTime now = DateTime.now(); // current time
+    if (now.isAfter(DateTime(2020, 12, 16, 12, 30))) {
+      setState(() {
+        isDarkMode = !isDarkMode;
+      });
+    } else {}
+  }
 
   void navigate(index) async {
     setState(() {
