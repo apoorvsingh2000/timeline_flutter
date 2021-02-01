@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
-    if (now.isAfter(DateTime(2020, 12, 16, 12, 30))) {
+    if (now.isAfter(DateTime(2020, 12, 18, 12, 30))) {
       setState(() {
         isDarkMode = !isDarkMode;
       });

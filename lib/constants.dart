@@ -27,8 +27,8 @@ const darkBackgroundGradient = LinearGradient(
 );
 
 Widget indicatorImage = Image.asset('images/indicator.png');
-Widget earthImage = Image.asset('images/earth.png');
-Widget moonImage = Image.asset('images/moon.png');
+Widget earthImageNight = Image.asset('images/earth_night.png');
+Widget moonImage = Image.asset('images/moon_white.png');
 Widget sunImage = Image.asset('images/sun.png');
 
 double screenWidth(BuildContext context) => MediaQuery.of(context).size.width;

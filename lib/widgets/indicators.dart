@@ -13,7 +13,7 @@ IndicatorStyle earthIndicator(BuildContext context) {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(
-        child: earthImage,
+        child: earthImageNight,
       ),
     ),
   );
