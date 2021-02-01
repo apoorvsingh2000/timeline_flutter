@@ -18,6 +18,7 @@ dependencies:
   cloud_firestore:
   firebase_core:
   flutter_svg:
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
