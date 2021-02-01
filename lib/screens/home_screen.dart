@@ -1,4 +1,5 @@
 import 'package:equinox_21/constants.dart';
+import 'package:equinox_21/screens/team_page.dart';
 import 'package:equinox_21/screens/timeline_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Container(color: Colors.blue),
     Container(color: Colors.red),
     TimelineScreen(),
-    Container(color: Colors.green),
+    Aboutus(),
     Container(color: Colors.yellow),
   ];
 
