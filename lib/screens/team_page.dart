@@ -31,9 +31,9 @@ class _TeamState extends State<Team> {
   var docID = 'BtX9xm9ioncqthMpc6j5lZa86Of1';
 
   void getdata() async {
-    await Firestore.instance
+    await FirebaseFirestore.instance
         .collection('users')
-        .document('BtX9xm9ioncqthMpc6j5lZa86Of1')
+        .doc('BtX9xm9ioncqthMpc6j5lZa86Of1')
         .get()
         .then((DocumentSnapshot docSnapshot) => {
               teammate1 = docSnapshot.data()['Teammate1'],
@@ -95,14 +95,14 @@ class _TeamState extends State<Team> {
                       children: [
                         Text(
                           username,
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                         Expanded(child: SizedBox()),
                         Text(
                           '19BEC0123',
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                       ],
                     ),
@@ -110,14 +110,14 @@ class _TeamState extends State<Team> {
                       children: [
                         Text(
                           teammate1,
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                         Expanded(child: SizedBox()),
                         Text(
                           '19BEC0123',
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                       ],
                     ),
@@ -125,14 +125,14 @@ class _TeamState extends State<Team> {
                       children: [
                         Text(
                           teammate2,
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                         Expanded(child: SizedBox()),
                         Text(
                           '19BEC0123',
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                       ],
                     ),
@@ -140,14 +140,14 @@ class _TeamState extends State<Team> {
                       children: [
                         Text(
                           teammate3,
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                         Expanded(child: SizedBox()),
                         Text(
                           '19BEC0123',
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                       ],
                     ),
@@ -155,14 +155,14 @@ class _TeamState extends State<Team> {
                       children: [
                         Text(
                           teammate4,
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                         Expanded(child: SizedBox()),
                         Text(
                           '19BEC0123',
-                          style:
-                              GoogleFonts.raleway(fontSize: 15, color: Colors.white),
+                          style: GoogleFonts.raleway(
+                              fontSize: 15, color: Colors.white),
                         ),
                       ],
                     ),
@@ -170,7 +170,8 @@ class _TeamState extends State<Team> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 35.0, right: 35.0, top: 35.0),
+                padding:
+                    const EdgeInsets.only(left: 35.0, right: 35.0, top: 35.0),
                 child: Divider(
                   color: color1,
                   thickness: 4,
@@ -205,7 +206,8 @@ class _TeamState extends State<Team> {
                           ),
                           Text(
                             'Xs12Vd',
-                            style: GoogleFonts.raleway(color: color1, fontSize: 20),
+                            style: GoogleFonts.raleway(
+                                color: color1, fontSize: 20),
                           ),
                         ],
                       ),
@@ -238,7 +240,8 @@ class _TeamState extends State<Team> {
                         side: BorderSide(color: Colors.white, width: 3)),
                     child: Text(
                       'My ID',
-                      style: GoogleFonts.raleway(color: Colors.white, fontSize: 15),
+                      style: GoogleFonts.raleway(
+                          color: Colors.white, fontSize: 15),
                     ),
                     onPressed: () {
                       getdata();
