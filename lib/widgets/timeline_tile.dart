@@ -11,18 +11,22 @@ class TimelineTileItem extends StatefulWidget {
   final about;
   final time;
   final isFirst;
+  final isLast;
   final isDarkMode;
   final indicator;
-  final color;
+  final colorUp;
+  final colorDown;
 
   TimelineTileItem(
       {this.title,
       this.about,
       this.time,
       this.isFirst,
+      this.isLast,
       this.isDarkMode,
       this.indicator,
-      this.color});
+      this.colorUp,
+      this.colorDown});
 
   @override
   _TimelineTileItemState createState() => _TimelineTileItemState();
@@ -35,8 +39,13 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
       alignment: TimelineAlign.manual,
       lineXY: 0.3,
       isFirst: widget.isFirst,
+      isLast: widget.isLast,
       beforeLineStyle: LineStyle(
-        color: widget.color,
+        color: widget.colorUp,
+        thickness: 4,
+      ),
+      afterLineStyle: LineStyle(
+        color: widget.colorDown,
         thickness: 4,
       ),
       indicatorStyle: widget.indicator,

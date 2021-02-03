@@ -1,7 +1,9 @@
 import 'package:equinox_21/constants.dart';
+import 'package:equinox_21/screens/team_page.dart';
 import 'package:equinox_21/screens/timeline_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:equinox_21/screens/about_us.dart';
 
 bool isDarkMode = false;
 
@@ -14,9 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
   List<Widget> pages = <Widget>[
     Container(color: Colors.blue),
-    Container(color: Colors.red),
+    Team(),
     TimelineScreen(),
-    Container(color: Colors.green),
+    Aboutus(),
     Container(color: Colors.yellow),
   ];
 
@@ -28,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
-    if (now.isAfter(DateTime(2020, 12, 16, 12, 30))) {
+    if (now.isAfter(DateTime(2020, 12, 18, 12, 30))) {
       setState(() {
         isDarkMode = !isDarkMode;
       });

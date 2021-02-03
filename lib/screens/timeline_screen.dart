@@ -16,6 +16,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
   bool isDarkMode = false;
   DateTime now;
   bool isFirst = false;
+  bool isLast = false;
   final _firestore = FirebaseFirestore.instance;
 
   @override
@@ -28,7 +29,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
-    if (now.isAfter(DateTime(2020, 12, 16, 12, 30))) {
+    if (now.isAfter(DateTime(2020, 12, 18, 12, 30))) {
       setState(() {
         isDarkMode = !isDarkMode;
       });
@@ -85,27 +86,33 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               final nextEvent =
                                   DateTime.parse(tile.data()['nextEvent']);
                               IndicatorStyle indicator = normalIndicator(context);
-                              Color color = Colors.yellow[400];
+                              Color colorUp = Colors.yellow[400];
+                              Color colorDown = Colors.green[400];
                               if (now.isAfter(thisEvent) &&
                                   now.isBefore(nextEvent)) {
                                 indicator = earthIndicator(context);
-                              }
-                              if (now.isBefore(thisEvent)) {
-                                color = Colors.yellow[400];
-                              }
-                              if (now.isAfter(nextEvent)) {
-                                color = Colors.green[400];
+                                colorUp = Colors.yellow;
+                                colorDown = Colors.green;
+                              } else if (now.isBefore(thisEvent)) {
+                                colorUp = Colors.green[400];
+                                colorDown = Colors.green[400];
+                              } else if (now.isAfter(thisEvent)) {
+                                colorUp = Colors.yellow[400];
+                                colorDown = Colors.yellow[400];
                               }
                               i == 0 ? isFirst = true : isFirst = false;
                               i++;
+                              i == tiles.length ? isLast = true : isLast = false;
                               final tileToAdd = TimelineTileItem(
                                 about: about,
                                 time: time,
                                 title: title,
                                 isFirst: isFirst,
+                                isLast: isLast,
                                 isDarkMode: isDarkMode,
                                 indicator: indicator,
-                                color: color,
+                                colorUp: colorUp,
+                                colorDown: colorDown,
                               );
                               timelineTileList.add(tileToAdd);
                             }
@@ -117,9 +124,11 @@ class _TimelineScreenState extends State<TimelineScreen> {
                   ],
                 ),
                 Positioned(
-                  top: screenHeight(context) * 0.55,
+                  top: screenHeight(context) * 0.5,
                   right: 0.0,
-                  child: isDarkMode ? moonImage : sunImage,
+                  child: SizedBox(
+                      height: screenHeight(context) * 0.25,
+                      child: isDarkMode ? moonImage : sunImage),
                 ),
               ],
             ),
