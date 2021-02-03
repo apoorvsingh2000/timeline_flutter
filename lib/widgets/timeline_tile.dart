@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import '../constants.dart';
-import 'indicators.dart';
 
 bool isClicked = false;
 DateTime now = DateTime.now();
