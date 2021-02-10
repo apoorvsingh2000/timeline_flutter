@@ -42,5 +42,5 @@ EdgeInsets tilePadding(BuildContext context) => EdgeInsets.only(
 TextStyle textStyle(BuildContext context, bool isDarkMode, bool isClicked) =>
     GoogleFonts.raleway(
         color: isDarkMode ? textColorNight : textColorDay,
-        // fontSize: screenWidth(context) * 0.1,
+        fontSize: screenWidth(context) * 0.043,
         fontWeight: isClicked ? FontWeight.bold : null);

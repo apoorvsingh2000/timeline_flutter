@@ -31,11 +31,11 @@ class _TimelineScreenState extends State<TimelineScreen> {
     DateTime now = DateTime.now(); // current time
     if (now.hour > 18 && now.hour < 6) {
       setState(() {
-        isDarkMode = false;
+        isDarkMode = true;
       });
     } else {
       setState(() {
-        isDarkMode = true;
+        isDarkMode = false;
       });
     }
   }
@@ -120,8 +120,12 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               );
                               timelineTileList.add(tileToAdd);
                             }
-                            return ListView(
-                              children: timelineTileList,
+                            return Padding(
+                              padding: EdgeInsets.only(
+                                  right: screenWidth(context) * 0.01),
+                              child: ListView(
+                                children: timelineTileList,
+                              ),
                             );
                           }),
                     ),
@@ -129,7 +133,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 ),
                 Positioned(
                   top: screenHeight(context) * 0.5,
-                  right: 0.0,
+                  left: screenWidth(context) * 0.73,
                   child: SizedBox(
                       height: screenHeight(context) * 0.25,
                       child: isDarkMode ? moonImage : sunImage),

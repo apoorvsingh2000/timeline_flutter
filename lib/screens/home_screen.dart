@@ -34,11 +34,11 @@ class _HomeScreenState extends State<HomeScreen> {
     DateTime now = DateTime.now(); // current time
     if (now.hour > 18 && now.hour < 6) {
       setState(() {
-        isDarkMode = false;
+        isDarkMode = true;
       });
     } else {
       setState(() {
-        isDarkMode = true;
+        isDarkMode = false;
       });
     }
   }

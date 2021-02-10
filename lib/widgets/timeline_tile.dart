@@ -1,3 +1,4 @@
+import 'package:equinox_21/models/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import '../constants.dart';
@@ -53,30 +54,34 @@ class _TimelineTileItemState extends State<TimelineTileItem> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Text(
-                  widget.title,
-                  style: textStyle(context, widget.isDarkMode, isClicked),
-                ),
-                IconButton(
-                  onPressed: () {
-                    setState(() {
-                      isClicked = !isClicked;
-                    });
-                  },
-                  icon: Icon(
-                    isClicked
-                        ? Icons.keyboard_arrow_up_rounded
-                        : Icons.keyboard_arrow_down_rounded,
-                    color: dropDownColor,
+            InkWell(
+              onTap: () {
+                setState(() {
+                  isClicked = !isClicked;
+                });
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.title,
+                    style: textStyle(context, widget.isDarkMode, isClicked),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.only(right: 16.0),
+                    child: Icon(
+                      isClicked
+                          ? Icons.keyboard_arrow_up_rounded
+                          : Icons.keyboard_arrow_down_rounded,
+                      color: dropDownColor,
+                    ),
+                  ),
+                ],
+              ),
             ),
             isClicked == true
                 ? Text(
-                    widget.about,
+                    '\n${widget.about}',
                     style: textStyle(context, widget.isDarkMode, false),
                   )
                 : Container(),
