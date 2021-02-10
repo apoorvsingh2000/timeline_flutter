@@ -29,11 +29,15 @@ class _TimelineScreenState extends State<TimelineScreen> {
 
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
-    if (now.isAfter(DateTime(2020, 12, 18, 12, 30))) {
+    if (now.hour > 18 && now.hour < 6) {
       setState(() {
-        isDarkMode = !isDarkMode;
+        isDarkMode = false;
       });
-    } else {}
+    } else {
+      setState(() {
+        isDarkMode = true;
+      });
+    }
   }
 
   @override

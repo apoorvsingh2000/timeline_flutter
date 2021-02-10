@@ -32,11 +32,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void manageTheme() {
     DateTime now = DateTime.now(); // current time
-    if (now.isAfter(DateTime(2020, 12, 18, 12, 30))) {
+    if (now.hour > 18 && now.hour < 6) {
       setState(() {
-        isDarkMode = !isDarkMode;
+        isDarkMode = false;
       });
-    } else {}
+    } else {
+      setState(() {
+        isDarkMode = true;
+      });
+    }
   }
 
   void navigate(index) async {
@@ -51,14 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.shifting,
-        selectedItemColor:
-            isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
-        unselectedItemColor:
-            isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
+        selectedItemColor: isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
+        unselectedItemColor: isDarkMode == true ? Color(0xffFBD00D) : darkBackground,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: Image.asset(
               'images/equinox_white.png',
               height: screenHeight(context) * 0.05,
@@ -69,8 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: Icon(
               Icons.people,
               // color: isDarkMode == true ? darkNavButton : lightNavButton,
@@ -83,8 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: Icon(
               Icons.access_time,
               // color: isDarkMode == true ? darkNavButton : lightNavButton,
@@ -97,8 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: Icon(
               Icons.library_books,
               // color: isDarkMode == true ? darkNavButton : lightNavButton,
@@ -111,8 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           BottomNavigationBarItem(
-            backgroundColor:
-                isDarkMode == true ? darkBackground : lightBackground,
+            backgroundColor: isDarkMode == true ? darkBackground : lightBackground,
             icon: Icon(
               Icons.headset,
               // color: isDarkMode == true ? darkNavButton : lightNavButton,
