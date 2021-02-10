@@ -9,7 +9,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="equinox_21"
+        android:label="Equinox"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
