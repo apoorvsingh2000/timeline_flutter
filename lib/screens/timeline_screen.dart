@@ -28,8 +28,9 @@ class _TimelineScreenState extends State<TimelineScreen> {
   }
 
   void manageTheme() {
-    DateTime now = DateTime.now(); // current time
-    if (now.hour > 18 && now.hour < 6) {
+    DateTime now = DateTime.now();
+    print(now.hour); // current time
+    if (now.hour > 18 || now.hour < 6) {
       setState(() {
         isDarkMode = true;
       });
@@ -52,7 +53,6 @@ class _TimelineScreenState extends State<TimelineScreen> {
           child: Padding(
             padding: EdgeInsets.only(
                 top: screenHeight(context) * 0.04,
-                bottom: screenHeight(context) * 0.05,
                 left: screenWidth(context) * 0.02),
             child: Stack(
               children: [
@@ -69,7 +69,10 @@ class _TimelineScreenState extends State<TimelineScreen> {
                     SizedBox(height: screenHeight(context) * 0.01),
                     Expanded(
                       child: StreamBuilder<QuerySnapshot>(
-                          stream: _firestore.collection('events').snapshots(),
+                          stream: _firestore
+                              .collection('events')
+                              .orderBy('thisEvent')
+                              .snapshots(),
                           builder: (context, snapshot) {
                             if (!snapshot.hasData) {
                               return Center(
@@ -90,19 +93,19 @@ class _TimelineScreenState extends State<TimelineScreen> {
                               final nextEvent =
                                   DateTime.parse(tile.data()['nextEvent']);
                               IndicatorStyle indicator = normalIndicator(context);
-                              Color colorUp = Colors.yellow[400];
-                              Color colorDown = Colors.green[400];
+                              Color colorUp = upLineColor;
+                              Color colorDown = downLineColor;
                               if (now.isAfter(thisEvent) &&
                                   now.isBefore(nextEvent)) {
                                 indicator = earthIndicator(context);
-                                colorUp = Colors.yellow;
-                                colorDown = Colors.green;
+                                colorUp = upLineColor;
+                                colorDown = downLineColor;
                               } else if (now.isBefore(thisEvent)) {
-                                colorUp = Colors.green[400];
-                                colorDown = Colors.green[400];
+                                colorUp = downLineColor;
+                                colorDown = downLineColor;
                               } else if (now.isAfter(thisEvent)) {
-                                colorUp = Colors.yellow[400];
-                                colorDown = Colors.yellow[400];
+                                colorUp = upLineColor;
+                                colorDown = upLineColor;
                               }
                               i == 0 ? isFirst = true : isFirst = false;
                               i++;
@@ -133,10 +136,19 @@ class _TimelineScreenState extends State<TimelineScreen> {
                 ),
                 Positioned(
                   top: screenHeight(context) * 0.5,
-                  left: screenWidth(context) * 0.73,
-                  child: SizedBox(
-                      height: screenHeight(context) * 0.25,
-                      child: isDarkMode ? moonImage : sunImage),
+                  left: screenWidth(context) * 0.7,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Icon(
+                        Icons.arrow_back_ios_rounded,
+                        color: Colors.black54,
+                      ),
+                      SizedBox(
+                          height: screenHeight(context) * 0.25,
+                          child: isDarkMode ? moonImage : sunImage),
+                    ],
+                  ),
                 ),
               ],
             ),

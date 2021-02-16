@@ -6,6 +6,8 @@ const textColorDay = Colors.black;
 const darkBackground = Color(0xFF0E1C36);
 const lightBackground = Color(0xFFCCF2FA);
 const dropDownColor = Color(0xFF6A7282);
+const upLineColor = Color(0xffFFED43);
+const downLineColor = Color(0xff3F964F);
 const lightBackgroundGradient = LinearGradient(
   begin: Alignment.topCenter,
   end: Alignment.bottomCenter,
